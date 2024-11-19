@@ -14,7 +14,7 @@ Projeto desenvolvido para atender as necessidades de gerenciamento de informaç�
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/crisfulber/gestaoWebApp.git
+    git clone https://github.com/crisfulber/BackendGestaoWebApp
     ```
 2. Navegue até o diretório do projeto:
     ```sh

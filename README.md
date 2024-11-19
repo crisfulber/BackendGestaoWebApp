@@ -1,4 +1,4 @@
-# Gestao Web App
+# Gestão Web App
 
 Projeto desenvolvido para atender as necessidades de gerenciamento de informações da empresa, tanto no que diz respeito aos recursos humenos quanto à questão financeira e todos os departamentos que estão no escopo da empresa-alvo.
 
@@ -14,7 +14,7 @@ Projeto desenvolvido para atender as necessidades de gerenciamento de informaç�
 
 1. Clone o repositório:
     ```sh
-    git clone https://github.com/crisfulber/gestaoWebApp.git
+    git clone https://github.com/crisfulber/BackendGestaoWebApp
     ```
 2. Navegue até o diretório do projeto:
     ```sh

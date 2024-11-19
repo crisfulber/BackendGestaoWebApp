@@ -1,4 +1,4 @@
-# Gestao Web App
+# Gestão Web App
 
 Projeto desenvolvido para atender as necessidades de gerenciamento de informações da empresa, tanto no que diz respeito aos recursos humenos quanto à questão financeira e todos os departamentos que estão no escopo da empresa-alvo.
 

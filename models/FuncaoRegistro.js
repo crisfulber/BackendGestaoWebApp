@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const FuncaoRegistro = sequelize.define('FuncaoRegistro', {
-  idfuncao_registro: {
+  idfuncaoregistro: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -17,7 +17,7 @@ const FuncaoRegistro = sequelize.define('FuncaoRegistro', {
     allowNull: false
   }
 }, {
-  tableName: 'funcao_registro', // Nome da tabela no banco de dados
+  tableName: 'funcaoregistro', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

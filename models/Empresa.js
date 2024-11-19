@@ -20,12 +20,12 @@ const Empresa = sequelize.define('Empresa', {
       key: 'idendereco'
     }
   },
-  salario_vigente_idsalario_vigente: {
+  salariovigente_idsalariovigente: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'SalarioVigente', // Nome da tabela referenciada
-      key: 'idsalario_vigente'
+      key: 'idsalariovigente'
     }
   }
 }, {

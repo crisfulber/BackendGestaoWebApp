@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const HorasFaltas = sequelize.define('HorasFaltas', {
-  idhoras_faltas: {
+  idhorasfaltas: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -16,20 +16,20 @@ const HorasFaltas = sequelize.define('HorasFaltas', {
       key: 'idcolaborador'
     }
   },
-  mes_ano_idmes_ano: {
+  periodo_idperiodo: {
     type: DataTypes.STRING,
     allowNull: false,
     references: {
-      model: 'MesAno', // Nome da tabela referenciada
-      key: 'idmes_ano'
+      model: 'Periodo', // Nome da tabela referenciada
+      key: 'idperiodo'
     }
   },
-  horas_faltas: {
+  horasfaltas: {
     type: DataTypes.FLOAT,
     allowNull: false
   }
 }, {
-  tableName: 'horas_faltas', // Nome da tabela no banco de dados
+  tableName: 'horasfaltas', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

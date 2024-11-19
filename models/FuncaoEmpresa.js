@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const FuncaoEmpresa = sequelize.define('FuncaoEmpresa', {
-  idfuncao_empresa: {
+  idfuncaoempresa: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -13,7 +13,7 @@ const FuncaoEmpresa = sequelize.define('FuncaoEmpresa', {
     allowNull: false
   }
 }, {
-  tableName: 'funcao_empresa', // Nome da tabela no banco de dados
+  tableName: 'funcaoempresa', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

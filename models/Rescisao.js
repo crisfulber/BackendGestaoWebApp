@@ -16,11 +16,11 @@ const Rescisao = sequelize.define('Rescisao', {
       key: 'idcolaborador'
     }
   },
-  dt_aviso_previo: {
+  dtavisoprevio: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  dt_ultimo_dia: {
+  dtultimodia: {
     type: DataTypes.DATE,
     allowNull: false
   }

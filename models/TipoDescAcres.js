@@ -3,21 +3,21 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const TipoDescAcres = sequelize.define('TipoDescAcres', {
-  idtipo_desc_acres: {
+  idtipodescacres: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  tipo_acrescimo: {
+  tipoacrescimo: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  tipo_desconto: {
+  tipodesconto: {
     type: DataTypes.STRING,
     allowNull: false
   }
 }, {
-  tableName: 'tipo_desc_acres', // Nome da tabela no banco de dados
+  tableName: 'tipodescacres', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

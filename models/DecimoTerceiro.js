@@ -3,24 +3,24 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const DecimoTerceiro = sequelize.define('DecimoTerceiro', {
-  iddecimo_terceiro: {
+  iddecimoterceiro: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  dt_parcela1: {
+  dtparcela1: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  vlr_parcela1: {
+  vlrparcela1: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  dt_parcela2: {
+  dtparcela2: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  vlr_parcela2: {
+  vlrparcela2: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
@@ -33,7 +33,7 @@ const DecimoTerceiro = sequelize.define('DecimoTerceiro', {
     }
   }
 }, {
-  tableName: 'decimo_terceiro', // Nome da tabela no banco de dados
+  tableName: 'decimoterceiro', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

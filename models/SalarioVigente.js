@@ -3,16 +3,16 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const SalarioVigente = sequelize.define('SalarioVigente', {
-  idsalario_vigente: {
+  idsalariovigente: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  data_inicio: {
+  dtinicio: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  data_fim: {
+  dtfim: {
     type: DataTypes.DATE,
     allowNull: true
   },
@@ -21,7 +21,7 @@ const SalarioVigente = sequelize.define('SalarioVigente', {
     allowNull: false
   }
 }, {
-  tableName: 'salario_vigente', // Nome da tabela no banco de dados
+  tableName: 'salariovigente', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

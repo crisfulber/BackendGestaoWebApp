@@ -3,7 +3,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
-  idoutros_acrescimos: {
+  idoutrosacrescimos: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
@@ -16,32 +16,32 @@ const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
       key: 'idcolaborador'
     }
   },
-  tipo_desc_acres_idtipo_desc_acres: {
+  tipodescacres_idtipodescacres: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'TipoDescAcres', // Nome da tabela referenciada
-      key: 'idtipo_desc_acres'
+      key: 'idtipodescacres'
     }
   },
   valor: {
     type: DataTypes.FLOAT,
     allowNull: false
   },
-  mes_ano_idmes_ano: {
+  periodo_idperiodo: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'MesAno', // Nome da tabela referenciada
-      key: 'idmes_ano'
+      model: 'Periodo', // Nome da tabela referenciada
+      key: 'idperiodo'
     }
   },
-  num_parcelas: {
+  numparcelas: {
     type: DataTypes.INTEGER,
     allowNull: false
   }
 }, {
-  tableName: 'outros_acrescimos', // Nome da tabela no banco de dados
+  tableName: 'outrosacrescimos', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

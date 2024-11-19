@@ -12,7 +12,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  dt_inicio: {
+  dtinicio: {
     type: DataTypes.DATE,
     allowNull: false
   },
@@ -21,7 +21,7 @@ const Colaborador = sequelize.define('Colaborador', {
     allowNull: false,
     unique: true
   },
-  vale_transporte: {
+  valetransporte: {
     type: DataTypes.TINYINT,
     allowNull: false,
     unique: true
@@ -31,12 +31,12 @@ const Colaborador = sequelize.define('Colaborador', {
     allowNull: true,
     unique: true,
   },
-  funcao_empresa_idfuncao_empresa: {
+  funcaoempresa_idfuncaoempresa: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'FuncaoEmpresa', // Nome da tabela referenciada
-      key: 'idfuncao_empresa'
+      key: 'idfuncaoempresa'
     }
   },
   escala_idescala: {
@@ -95,12 +95,12 @@ const Colaborador = sequelize.define('Colaborador', {
       key: 'iddependentes'
     }
   },
-  estado_civil_idestado_civil: {
+  estadocivil_idestadocivil: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'EstadoCivil', // Nome da tabela referenciada
-      key: 'idestado_civil'
+      key: 'idestadocivil'
     }
   },
   endereco_idendereco: {

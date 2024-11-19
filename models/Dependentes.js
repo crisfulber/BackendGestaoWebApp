@@ -12,7 +12,7 @@ const Dependentes = sequelize.define('Dependentes', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  dt_nascimento: {
+  dtnascimento: {
     type: DataTypes.DATE,
     allowNull: false
   },

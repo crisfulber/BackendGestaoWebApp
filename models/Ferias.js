@@ -8,7 +8,7 @@ const Ferias = sequelize.define('Ferias', {
     primaryKey: true,
     autoIncrement: true
   },
-  dt_saida: {
+  dtsaida: {
     type: DataTypes.DATE,
     allowNull: false
   },

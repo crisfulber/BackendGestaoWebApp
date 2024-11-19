@@ -17,11 +17,11 @@ const CTPS = sequelize.define('CTPS', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  data_emissao: {
+  dtemissao: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  num_pis: {
+  numpis: {
     type: DataTypes.INTEGER,
     allowNull: false
   },

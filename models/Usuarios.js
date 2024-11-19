@@ -20,12 +20,12 @@ const Usuarios = sequelize.define('Usuarios', {
       isEmail: true
     }
   },
-  setor_usuario_idsetor_usuario: {
+  setorusuario_idsetorusuario: {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
       model: 'SetorUsuario', // Nome da tabela referenciada
-      key: 'idsetor_usuario'
+      key: 'idsetorusuario'
     }
   }
 }, {

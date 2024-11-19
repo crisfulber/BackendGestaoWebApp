@@ -1,5 +1,5 @@
 // models/Setores.js
-const { DataTypes } = require('sequelize');
+const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const Setores = sequelize.define('Setores', {

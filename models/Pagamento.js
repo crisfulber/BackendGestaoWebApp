@@ -8,12 +8,12 @@ const Pagamento = sequelize.define('Pagamento', {
     primaryKey: true,
     autoIncrement: true
   },
-  mes_ano_idmes_ano: {
+  periodo_idperiodo: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'MesAno', // Nome da tabela referenciada
-      key: 'idmes_ano'
+      model: 'Periodo', // Nome da tabela referenciada
+      key: 'idperiodo'
     }
   },
   colaborador_idcolaborador: {
@@ -24,12 +24,12 @@ const Pagamento = sequelize.define('Pagamento', {
       key: 'idcolaborador'
     }
   },
-  historico_salario_idhistorico_salario: {
+  historicosalario_idhistoricosalario: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'HistoricoSalario', // Nome da tabela referenciada
-      key: 'idhistorico_salario'
+      key: 'idhistoricosalario'
     }
   },
   bonificacao_idbonificacao: {
@@ -40,28 +40,28 @@ const Pagamento = sequelize.define('Pagamento', {
       key: 'idbonificacao'
     }
   },
-  outros_acrescimos_idoutros_acrescimos: {
+  outrosacrescimos_idoutrosacrescimos: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'OutrosAcrescimos', // Nome da tabela referenciada
-      key: 'idoutros_acrescimos'
+      key: 'idoutrosacrescimos'
     }
   },
-  horas_extras_idhoras_extras: {
+  horasextras_idhorasextras: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'HorasExtras', // Nome da tabela referenciada
-      key: 'idhoras_extras'
+      key: 'idhorasextras'
     }
   },
-  horas_faltas_idhoras_faltas: {
+  horasfaltas_idhorasfaltas: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'HorasFaltas', // Nome da tabela referenciada
-      key: 'idhoras_faltas'
+      key: 'idhorasfaltas'
     }
   },
   adiantamento_idadiantamento: {

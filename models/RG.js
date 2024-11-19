@@ -8,28 +8,28 @@ const RG = sequelize.define('RG', {
     primaryKey: true,
     autoIncrement: true
   },
-  num_rg: {
+  numero: {
     type: DataTypes.STRING,
     allowNull: false,
     unique: true
   },
-  dt_emissao_rg: {
+  dtemissao: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  orgao_rg: {
+  orgao: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  nome_pai: {
+  nomepai: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  nome_mae: {
+  nomemae: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  dt_nascimento: {
+  dtnascimento: {
     type: DataTypes.DATE,
     allowNull: false
   },

@@ -16,19 +16,19 @@ const Escala = sequelize.define('Escala', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  hora_entrada: {
+  horaentrada: {
     type: DataTypes.TIME,
     allowNull: false
   },
-  hora_sai_intervalo: {
+  horasaiintervalo: {
     type: DataTypes.TIME,
     allowNull: false
   },
-  hora_volta_intervalo: {
+  horavoltaintervalo: {
     type: DataTypes.STRING,
     allowNull: false
   },
-  hora_saida: {
+  horasaida: {
     type: DataTypes.STRING,
     allowNull: false
   }

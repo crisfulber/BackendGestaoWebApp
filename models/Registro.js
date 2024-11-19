@@ -16,32 +16,32 @@ const Registro = sequelize.define('Registro', {
       key: 'idcolaborador'
     }
   },
-  dt_registro: {
+  dtregistro: {
     type: DataTypes.DATE,
     allowNull: false
   },
-  historico_funcao_idhistorico_funcao: {
+  historicofuncao_idhistoricofuncao: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'HistoricoFuncao', // Nome da tabela referenciada
-      key: 'idhistorico_funcao'
+      key: 'idhistoricofuncao'
     }
   },
-  funcao_registro_idfuncao_registro: {
+  funcaoregistro_idfuncaoregistro: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'FuncaoRegistro', // Nome da tabela referenciada
-      key: 'idfuncao_registro'
+      key: 'idfuncaoregistro'
     }
   },
-  historico_salario_idhistorico_salario: {
+  historicosalario_idhistoricosalario: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'HistoricoSalario', // Nome da tabela referenciada
-      key: 'idhistorico_salario'
+      key: 'idhistoricosalario'
     }
   }
 }, {

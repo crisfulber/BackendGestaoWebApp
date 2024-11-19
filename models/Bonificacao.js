@@ -8,15 +8,15 @@ const Bonificacao = sequelize.define('Bonificacao', {
     primaryKey: true,
     autoIncrement: true
   },
-  mes_ano_idmes_ano: {
+  periodo_idperiodo: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'MesAno', // Nome da tabela referenciada
-      key: 'idmes_ano'
+      model: 'Periodo', // Nome da tabela referenciada
+      key: 'idperiodo'
     }
   },
-  vlr_apurado: {
+  vlrapurado: {
     type: DataTypes.FLOAT,
     allowNull: false
   },  
@@ -28,12 +28,12 @@ const Bonificacao = sequelize.define('Bonificacao', {
       key: 'idunidade'
     }
   },  
-  funcao_empresa_idfuncao_empresa: {
+  funcaoempresa_idfuncaoempresa: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
       model: 'FuncaoEmpresa', // Nome da tabela referenciada
-      key: 'idfuncao_empresa'
+      key: 'idfuncaoempresa'
     }
   },
   colaborador_idcolaborador: {

@@ -1,24 +1,28 @@
-// models/MesAno.js
+// models/Periodo.js
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
-const MesAno = sequelize.define('MesAno', {
-  idmes_ano: {
+const Periodo = sequelize.define('Periodo', {
+  idperiodo: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  mes_referencia: {
+  nome: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
+  mesreferencia: {
     type: DataTypes.INTEGER,
     allowNull: false
   },
-  ano_referencia: {
+  anoreferencia: {
     type: DataTypes.INTEGER,
     allowNull: false
   }
 }, {
-  tableName: 'mes_ano', // Nome da tabela no banco de dados
+  tableName: 'periodo', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 
-module.exports = MesAno;
+module.exports = Periodo;

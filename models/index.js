@@ -19,7 +19,7 @@ const FuncaoRegistro = require('./FuncaoRegistro');
 const HistoricoSalario = require('./HistoricoSalario');
 const HorasExtras = require('./HorasExtras');
 const HorasFaltas = require('./HorasFaltas');
-const MesAno = require('./MesAno');
+const Periodo = require('./Periodo');
 const Municipio = require('./Municipio');
 const Nacionalidade = require('./Nacionalidade');
 const OutrosAcrescimos = require('./OutrosAcrescimos');
@@ -56,7 +56,7 @@ module.exports = {
   HistoricoSalario,
   HorasExtras,
   HorasFaltas,
-  MesAno,
+  Periodo,
   Municipio,
   Nacionalidade,
   OutrosAcrescimos,

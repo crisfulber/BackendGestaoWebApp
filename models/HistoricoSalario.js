@@ -3,12 +3,12 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
 
 const HistoricoSalario = sequelize.define('HistoricoSalario', {
-  idhistorico_salario: {
+  idhistoricosalario: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true
   },
-  dt_alteracao: {
+  dtalteracao: {
     type: DataTypes.DATE,
     allowNull: false
   },
@@ -25,7 +25,7 @@ const HistoricoSalario = sequelize.define('HistoricoSalario', {
     }
   }
 }, {
-  tableName: 'historico_salario', // Nome da tabela no banco de dados
+  tableName: 'historicosalario', // Nome da tabela no banco de dados
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 

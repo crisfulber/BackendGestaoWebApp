@@ -6,7 +6,7 @@ const sequelize = new Sequelize('gestaoApp_db', 'usuario', '331388', {
 });
 
 sequelize.authenticate()
-  .then(() => console.log('Database connected...'))
-  .catch(err => console.log('Error: ' + err));
+.then(() => console.log('Conexão com o banco bem-sucedida!'))
+.catch((err) => console.error('Erro ao conectar ao banco:', err));
 
 module.exports = sequelize;

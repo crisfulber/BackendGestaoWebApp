@@ -1,6 +1,5 @@
 // controllers/rgController.js
 const RG = require('../models/RG');
-const RG = require('../models/RG');
 
 const getRG = async (req, res) => {
   try {

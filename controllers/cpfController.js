@@ -1,6 +1,5 @@
 // controllers/cpfController.js
 const CPF = require('../models/CPF');
-const CPF = require('../models/CPF');
 
 const getCPF = async (req, res) => {
   try {
@@ -14,7 +13,7 @@ const getCPF = async (req, res) => {
 const getCPFById = async (req, res) => {
   try {
     const { id } = req.params;
-    const CPF = await CPF.findOne({ where: { idcpf: id } }); 
+    const cpf = await CPF.findOne({ where: { idcpf: id } }); 
     if (CPF) {
       res.status(200).json(cpf); 
     } else {

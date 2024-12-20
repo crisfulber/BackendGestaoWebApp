@@ -68,7 +68,7 @@ const deleteBonificacao = async (req, res) => {
 
 module.exports = {
   getBonificacao,
-  getBonificacaobyId,
+  getBonificacaoById,
   createBonificacao,
   updateBonificacao,
   deleteBonificacao

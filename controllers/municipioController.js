@@ -10,6 +10,20 @@ const getMunicipio = async (req, res) => {
   }
 };
 
+const getMunicipioById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const municipio = await Municipio.findOne({ where: { idmunicipio: id } }); 
+    if (municipio) {
+      res.status(200).json(municipio); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createMunicipio = async (req, res) => {
   try {
     const municipio = await Municipio.create(req.body);
@@ -54,6 +68,7 @@ const deleteMunicipio = async (req, res) => {
 
 module.exports = {
   getMunicipio,
+  getMunicipioById,
   createMunicipio,
   updateMunicipio,
   deleteMunicipio

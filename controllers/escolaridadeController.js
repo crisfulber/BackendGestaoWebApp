@@ -10,6 +10,20 @@ const getEscolaridade = async (req, res) => {
   }
 };
 
+const getEscolaridadeById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const escolaridade = await Escolaridade.findOne({ where: { idescolaridade: id } }); 
+    if (escolaridade) {
+      res.status(200).json(escolaridade); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createEscolaridade = async (req, res) => {
   try {
     const escolaridade = await Escolaridade.create(req.body);
@@ -54,6 +68,7 @@ const deleteEscolaridade = async (req, res) => {
 
 module.exports = {
   getEscolaridade,
+  getEscolaridadeById,
   createEscolaridade,
   updateEscolaridade,
   deleteEscolaridade

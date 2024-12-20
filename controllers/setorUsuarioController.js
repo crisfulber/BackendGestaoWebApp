@@ -10,6 +10,20 @@ const getSetorUsuario = async (req, res) => {
   }
 };
 
+const getSetorUsuarioById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const setorUsuario = await SetorUsuario.findOne({ where: { idsetorusuario: id } }); 
+    if (setorUsuario) {
+      res.status(200).json(setorUsuario); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createSetorUsuario = async (req, res) => {
   try {
     const setorUsuario = await SetorUsuario.create(req.body);
@@ -23,10 +37,10 @@ const updateSetorUsuario = async (req, res) => {
   try {
     const { id } = req.params;
     const [updated] = await SetorUsuario.update(req.body, {
-      where: { idsetor_usuario: id }
+      where: { idsetorusuario: id }
     });
     if (updated) {
-      const updatedSetorUsuario = await SetorUsuario.findOne({ where: { idsetor_usuario: id } });
+      const updatedSetorUsuario = await SetorUsuario.findOne({ where: { idsetorusuario: id } });
       res.status(200).json(updatedSetorUsuario);
     } else {
       res.status(404).send('Setor Usuário não encontrado');
@@ -40,7 +54,7 @@ const deleteSetorUsuario = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await SetorUsuario.destroy({
-      where: { idsetor_usuario: id }
+      where: { idsetorusuario: id }
     });
     if (deleted) {
       res.status(204).send('Setor Usuário deletado');
@@ -54,6 +68,7 @@ const deleteSetorUsuario = async (req, res) => {
 
 module.exports = {
   getSetorUsuario,
+  getSetorUsuarioById,
   createSetorUsuario,
   updateSetorUsuario,
   deleteSetorUsuario

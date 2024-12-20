@@ -1,10 +1,25 @@
 // controllers/colaboradorController.js
+const { col } = require('sequelize');
 const Colaborador = require('../models/Colaborador');
 
 const getColaborador = async (req, res) => {
   try {
     const colaborador = await Colaborador.findAll();
     res.json(colaborador);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const getColaboradorById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const colaborador = await Colaborador.findOne({ where: { idcolaborador: id } }); 
+    if (colaborador) {
+      res.status(200).json(colaborador); 
+    } else {
+      res.status(404).send('Colaborador não encontrado');
+    }
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -54,6 +69,7 @@ const deleteColaborador = async (req, res) => {
 
 module.exports = {
   getColaborador,
+  getColaboradorById,
   createColaborador,
   updateColaborador,
   deleteColaborador

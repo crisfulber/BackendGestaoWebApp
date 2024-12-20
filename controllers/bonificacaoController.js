@@ -10,6 +10,20 @@ const getBonificacao = async (req, res) => {
   }
 };
 
+const getBonificacaoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const bonificacao = await Bonificacao.findOne({ where: { idbonificacao: id } }); 
+    if (bonificacao) {
+      res.status(200).json(bonificacao); 
+    } else {
+      res.status(404).send('Bonificacao não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createBonificacao = async (req, res) => {
   try {
     const bonificacao = await Bonificacao.create(req.body);
@@ -54,6 +68,7 @@ const deleteBonificacao = async (req, res) => {
 
 module.exports = {
   getBonificacao,
+  getBonificacaobyId,
   createBonificacao,
   updateBonificacao,
   deleteBonificacao

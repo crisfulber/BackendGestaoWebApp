@@ -10,6 +10,20 @@ const getCTPS = async (req, res) => {
   }
 };
 
+const getCTPSById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const ctps = await ctps.findOne({ where: { idctps: id } }); 
+    if (ctps) {
+      res.status(200).json(ctps); 
+    } else {
+      res.status(404).send('CTPS não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createCTPS = async (req, res) => {
   try {
     const ctps = await CTPS.create(req.body);
@@ -54,6 +68,7 @@ const deleteCTPS = async (req, res) => {
 
 module.exports = {
   getCTPS,
+  getCTPSById,
   createCTPS,
   updateCTPS,
   deleteCTPS

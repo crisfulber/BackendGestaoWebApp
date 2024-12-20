@@ -10,6 +10,20 @@ const getEscala = async (req, res) => {
   }
 };
 
+const getEscalaById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const escala = await Escala.findOne({ where: { idescala: id } }); 
+    if (escala) {
+      res.status(200).json(escala); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createEscala = async (req, res) => {
   try {
     const escala = await Escala.create(req.body);
@@ -54,6 +68,7 @@ const deleteEscala = async (req, res) => {
 
 module.exports = {
   getEscala,
+  getEscalaById,
   createEscala,
   updateEscala,
   deleteEscala

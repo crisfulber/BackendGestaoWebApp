@@ -10,6 +10,20 @@ const getEmpresa = async (req, res) => {
   }
 };
 
+const getEmpresaById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const empresa = await Empresa.findOne({ where: { idempresa: id } }); 
+    if (empresa) {
+      res.status(200).json(empresa); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createEmpresa = async (req, res) => {
   try {
     const empresa = await Empresa.create(req.body);
@@ -54,6 +68,7 @@ const deleteEmpresa = async (req, res) => {
 
 module.exports = {
   getEmpresa,
+  getEmpresaById,
   createEmpresa,
   updateEmpresa,
   deleteEmpresa

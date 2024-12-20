@@ -1,10 +1,25 @@
 // controllers/cpfController.js
 const CPF = require('../models/CPF');
+const CPF = require('../models/CPF');
 
 const getCPF = async (req, res) => {
   try {
     const cpf = await CPF.findAll();
     res.json(cpf);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const getCPFById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const CPF = await CPF.findOne({ where: { idcpf: id } }); 
+    if (CPF) {
+      res.status(200).json(cpf); 
+    } else {
+      res.status(404).send('CPF não encontrado'); 
+    }
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -54,6 +69,7 @@ const deleteCPF = async (req, res) => {
 
 module.exports = {
   getCPF,
+  getCPFById,
   createCPF,
   updateCPF,
   deleteCPF

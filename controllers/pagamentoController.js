@@ -10,6 +10,20 @@ const getPagamento = async (req, res) => {
   }
 };
 
+const getPagamentoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const pagamento = await Pagamento.findOne({ where: { idpagamento: id } }); 
+    if (pagamento) {
+      res.status(200).json(pagamento); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createPagamento = async (req, res) => {
   try {
     const pagamento = await Pagamento.create(req.body);
@@ -54,6 +68,7 @@ const deletePagamento = async (req, res) => {
 
 module.exports = {
   getPagamento,
+  getPagamentoById,
   createPagamento,
   updatePagamento,
   deletePagamento

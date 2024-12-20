@@ -10,6 +10,20 @@ const getDecimoTerceiro = async (req, res) => {
   }
 };
 
+const getDecimoTerceiroById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const decimoTerceiro = await DecimoTerceiro.findOne({ where: { iddecimoterceiro: id } }); 
+    if (decimoTerceiro) {
+      res.status(200).json(decimoTerceiro); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createDecimoTerceiro = async (req, res) => {
   try {
     const decimoTerceiro = await DecimoTerceiro.create(req.body);
@@ -23,10 +37,10 @@ const updateDecimoTerceiro = async (req, res) => {
   try {
     const { id } = req.params;
     const [updated] = await DecimoTerceiro.update(req.body, {
-      where: { iddecimo_terceiro: id }
+      where: { iddecimoterceiro: id }
     });
     if (updated) {
-      const updatedDecimoTerceiro = await DecimoTerceiro.findOne({ where: { iddecimo_terceiro: id } });
+      const updatedDecimoTerceiro = await DecimoTerceiro.findOne({ where: { iddecimoterceiro: id } });
       res.status(200).json(updatedDecimoTerceiro);
     } else {
       res.status(404).send('Decimo Terceiro não encontrado');
@@ -40,7 +54,7 @@ const deleteDecimoTerceiro = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await DecimoTerceiro.destroy({
-      where: { iddecimo_terceiro: id }
+      where: { iddecimoterceiro: id }
     });
     if (deleted) {
       res.status(204).send('Decimo Terceiro deletado');
@@ -54,6 +68,7 @@ const deleteDecimoTerceiro = async (req, res) => {
 
 module.exports = {
   getDecimoTerceiro,
+  getDecimoTerceiroById,
   createDecimoTerceiro,
   updateDecimoTerceiro,
   deleteDecimoTerceiro

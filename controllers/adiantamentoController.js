@@ -10,6 +10,20 @@ const getAdiantamento = async (req, res) => {
   }
 };
 
+const getAdiantamentoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const adiantamento = await Adiantamento.findOne({ where: { idadiantamento: id } }); 
+    if (adiantamento) {
+      res.status(200).json(adiantamento); 
+    } else {
+      res.status(404).send('Adiantamento não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createAdiantamento = async (req, res) => {
   try {
     const adiantamento = await Adiantamento.create(req.body);
@@ -54,6 +68,7 @@ const deleteAdiantamento = async (req, res) => {
 
 module.exports = {
   getAdiantamento,
+  getAdiantamentoById,
   createAdiantamento,
   updateAdiantamento,
   deleteAdiantamento

@@ -1,10 +1,25 @@
 // controllers/rgController.js
 const RG = require('../models/RG');
+const RG = require('../models/RG');
 
 const getRG = async (req, res) => {
   try {
     const rg = await RG.findAll();
     res.json(rg);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
+const getRGById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const rg = await RG.findOne({ where: { idrg: id } }); 
+    if (rg) {
+      res.status(200).json(rg); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
   } catch (err) {
     res.status(500).send(err.message);
   }
@@ -54,6 +69,7 @@ const deleteRG = async (req, res) => {
 
 module.exports = {
   getRG,
+  getRGById,
   createRG,
   updateRG,
   deleteRG

@@ -10,6 +10,20 @@ const getRegistro = async (req, res) => {
   }
 };
 
+const getRegistroById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const registro = await Registro.findOne({ where: { idregistro: id } }); 
+    if (registro) {
+      res.status(200).json(registro); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createRegistro = async (req, res) => {
   try {
     const registro = await Registro.create(req.body);
@@ -54,6 +68,7 @@ const deleteRegistro = async (req, res) => {
 
 module.exports = {
   getRegistro,
+  getRegistroById,
   createRegistro,
   updateRegistro,
   deleteRegistro

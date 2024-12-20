@@ -10,6 +10,20 @@ const getContato = async (req, res) => {
   }
 };
 
+const getContatoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const contato = await Contato.findOne({ where: { idcontato: id } }); 
+    if (contato) {
+      res.status(200).json(contato); 
+    } else {
+      res.status(404).send('Contato não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createContato = async (req, res) => {
   try {
     const contato = await Contato.create(req.body);
@@ -54,6 +68,7 @@ const deleteContato = async (req, res) => {
 
 module.exports = {
   getContato,
+  getContatoById,
   createContato,
   updateContato,
   deleteContato

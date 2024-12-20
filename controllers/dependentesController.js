@@ -10,6 +10,20 @@ const getDependentes = async (req, res) => {
   }
 };
 
+const getDependentesById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const dependentes = await Dependentes.findOne({ where: { iddependentes: id } }); 
+    if (dependentes) {
+      res.status(200).json(dependentes); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createDependentes = async (req, res) => {
   try {
     const dependentes = await Dependentes.create(req.body);
@@ -54,6 +68,7 @@ const deleteDependentes = async (req, res) => {
 
 module.exports = {
   getDependentes,
+  getDependentesById,
   createDependentes,
   updateDependentes,
   deleteDependentes

@@ -10,6 +10,20 @@ const getRescisao = async (req, res) => {
   }
 };
 
+const getRescisaoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const rescisao = await Rescisao.findOne({ where: { idrescisao: id } }); 
+    if (rescisao) {
+      res.status(200).json(rescisao); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createRescisao = async (req, res) => {
   try {
     const rescisao = await Rescisao.create(req.body);
@@ -54,6 +68,7 @@ const deleteRescisao = async (req, res) => {
 
 module.exports = {
   getRescisao,
+  getRescisaoById,
   createRescisao,
   updateRescisao,
   deleteRescisao

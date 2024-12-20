@@ -10,6 +10,20 @@ const getNacionalidade = async (req, res) => {
   }
 };
 
+const getNacionalidadeById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const nacionalidade = await Nacionalidade.findOne({ where: { idnacionalidade: id } }); 
+    if (nacionalidade) {
+      res.status(200).json(nacionalidade); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createNacionalidade = async (req, res) => {
   try {
     const nacionalidade = await Nacionalidade.create(req.body);
@@ -54,6 +68,7 @@ const deleteNacionalidade = async (req, res) => {
 
 module.exports = {
   getNacionalidade,
+  getNacionalidadeById,
   createNacionalidade,
   updateNacionalidade,
   deleteNacionalidade

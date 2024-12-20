@@ -10,6 +10,20 @@ const getFuncaoRegistro = async (req, res) => {
   }
 };
 
+const getFuncaoRegistroById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const funcaoRegistro = await FuncaoRegistro.findOne({ where: { idfuncaoregistro: id } }); 
+    if (funcaoRegistro) {
+      res.status(200).json(funcaoRegistro); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createFuncaoRegistro = async (req, res) => {
   try {
     const funcaoRegistro = await FuncaoRegistro.create(req.body);
@@ -23,10 +37,10 @@ const updateFuncaoRegistro = async (req, res) => {
   try {
     const { id } = req.params;
     const [updated] = await FuncaoRegistro.update(req.body, {
-      where: { idfuncao_registro: id }
+      where: { idfuncaoregistro: id }
     });
     if (updated) {
-      const updatedFuncaoRegistro = await FuncaoRegistro.findOne({ where: { idfuncao_registro: id } });
+      const updatedFuncaoRegistro = await FuncaoRegistro.findOne({ where: { idfuncaoregistro: id } });
       res.status(200).json(updatedFuncaoRegistro);
     } else {
       res.status(404).send('Funcao-Registro não encontrada');
@@ -40,7 +54,7 @@ const deleteFuncaoRegistro = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await FuncaoRegistro.destroy({
-      where: { idfuncao_registro: id }
+      where: { idfuncaoregistro: id }
     });
     if (deleted) {
       res.status(204).send('Funcao-Registro deletada');
@@ -54,6 +68,7 @@ const deleteFuncaoRegistro = async (req, res) => {
 
 module.exports = {
   getFuncaoRegistro,
+  getFuncaoRegistroById,
   createFuncaoRegistro,
   updateFuncaoRegistro,
   deleteFuncaoRegistro

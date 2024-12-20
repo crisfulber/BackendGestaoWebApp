@@ -10,6 +10,20 @@ const getEstado = async (req, res) => {
   }
 };
 
+const getEstadoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const estado = await Estado.findOne({ where: { idestado: id } }); 
+    if (estado) {
+      res.status(200).json(estado); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createEstado = async (req, res) => {
   try {
     const estado = await Estado.create(req.body);
@@ -54,6 +68,7 @@ const deleteEstado = async (req, res) => {
 
 module.exports = {
   getEstado,
+  getEstadoById,
   createEstado,
   updateEstado,
   deleteEstado

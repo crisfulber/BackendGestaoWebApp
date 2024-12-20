@@ -10,6 +10,20 @@ const getEndereco = async (req, res) => {
   }
 };
 
+const getEnderecoById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const endereco = await Endereco.findOne({ where: { idendereco: id } }); 
+    if (endereco) {
+      res.status(200).json(endereco); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createEndereco = async (req, res) => {
   try {
     const endereco = await Endereco.create(req.body);
@@ -54,6 +68,7 @@ const deleteEndereco = async (req, res) => {
 
 module.exports = {
   getEndereco,
+  getEnderecoById,
   createEndereco,
   updateEndereco,
   deleteEndereco

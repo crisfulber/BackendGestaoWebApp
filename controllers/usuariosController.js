@@ -10,6 +10,20 @@ const getUsuarios = async (req, res) => {
   }
 };
 
+const getUsuariosById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const usuarios = await Usuarios.findOne({ where: { idusuario: id } }); 
+    if (usuarios) {
+      res.status(200).json(usuarios); 
+    } else {
+      res.status(404).send('Registro não encontrado'); 
+    }
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+};
+
 const createUsuarios = async (req, res) => {
   try {
     const usuarios = await Usuarios.create(req.body);
@@ -54,6 +68,7 @@ const deleteUsuarios = async (req, res) => {
 
 module.exports = {
   getUsuarios,
+  getUsuariosById,
   createUsuarios,
   updateUsuarios,
   deleteUsuarios

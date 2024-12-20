@@ -1,9 +1,10 @@
 // routes/estadoCivilRoutes.js
 const express = require('express');
 const router = express.Router();
-const { getEstadoCivil, createEstadoCivil, updateEstadoCivil, deleteEstadoCivil } = require('../controllers/estadoCivilController');
+const { getEstadoCivil, createEstadoCivil, updateEstadoCivil, deleteEstadoCivil, getEstadoCivilById } = require('../controllers/estadoCivilController');
 
 router.get('/', getEstadoCivil);
+router.get('/:id', getEstadoCivilById);
 router.post('/', createEstadoCivil);
 router.put('/:id', updateEstadoCivil);
 router.delete('/:id', deleteEstadoCivil);

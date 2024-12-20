@@ -19,7 +19,15 @@ const Estado = sequelize.define('Estado', {
   }
 }, {
   tableName: 'estado', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  timestamps: false, // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  hooks: {
+    beforeSave: (estado) => {
+      if (typeof estado.nome === 'string') {
+        console.log(`Transformando nome para maiúsculas: ${estado.nome}`);
+        estado.nome = estado.nome.toUpperCase();
+      }
+    },
+  },
 });
 
 module.exports = Estado;

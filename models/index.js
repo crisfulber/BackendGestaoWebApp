@@ -1,3 +1,6 @@
+const sequelize = require('../config/database');
+const models = {};
+
 // models/index.js
 const Adiantamento = require('./Adiantamento');
 const Bonificacao = require('./Bonificacao');
@@ -71,4 +74,17 @@ module.exports = {
   TipoDescAcres,
   Unidade,
   Usuarios,
+};
+
+// Adicionar os modelos ao Sequelize
+Object.keys(models).forEach((modelName) => {
+  if (models[modelName].associate) {
+    models[modelName].associate(models);
+  }
+});
+
+// Exporte os modelos e a instância do Sequelize
+module.exports = {
+  sequelize,
+  ...models,
 };

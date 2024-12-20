@@ -1,4 +1,4 @@
-// script de sincronização (por exemplo, sync.js)
+// script de sincronização 
 const sequelize = require('./config/database');
 const models = require('./models');
 

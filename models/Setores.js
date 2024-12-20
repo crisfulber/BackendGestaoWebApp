@@ -13,8 +13,17 @@ const Setores = sequelize.define('Setores', {
     allowNull: false,
   },
 }, {
-  tableName: 'setores', // Nome exato da tabela no banco de dados
-  timestamps: false, // Evita os campos createdAt e updatedAt
-});
+  tableName: 'setores',
+  timestamps: false,
+  hooks: {
+    beforeSave: (setor) => {
+      if (typeof setor.nome === 'string') {
+        console.log(`Transformando nome para maiúsculas: ${setor.nome}`);
+        setor.nome = setor.nome.toUpperCase();
+      }
+    },
+  },
+}
+);
 
 module.exports = Setores;

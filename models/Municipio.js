@@ -25,4 +25,12 @@ const Municipio = sequelize.define('Municipio', {
   timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
 });
 
+Municipio.associate = (models) => {
+  // 1 Município pertence a 1 Estado
+  Municipio.belongsTo(models.Estado, {
+    foreignKey: 'estado_idestado',
+    targetKey: 'idestado'
+  });
+};
+
 module.exports = Municipio;

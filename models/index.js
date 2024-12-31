@@ -1,7 +1,8 @@
+// models/index.js
 const sequelize = require('../config/database');
 const models = {};
 
-// models/index.js
+// Importação de todos os modelos
 const Adiantamento = require('./Adiantamento');
 const Bonificacao = require('./Bonificacao');
 const Colaborador = require('./Colaborador');
@@ -38,52 +39,51 @@ const TipoDescAcres = require('./TipoDescAcres');
 const Unidade = require('./Unidade');
 const Usuarios = require('./Usuarios');
 
-module.exports = {
-  Adiantamento,
-  Bonificacao,
-  Colaborador,
-  Contato,
-  CPF,
-  CTPS,
-  DecimoTerceiro,
-  Dependentes,
-  Empresa,
-  Endereco,
-  Escala,
-  Escolaridade,
-  Estado,
-  EstadoCivil,
-  Ferias,
-  FuncaoEmpresa,
-  FuncaoRegistro,
-  HistoricoSalario,
-  HorasExtras,
-  HorasFaltas,
-  Periodo,
-  Municipio,
-  Nacionalidade,
-  OutrosAcrescimos,
-  OutrosDescontos,
-  Pagamento,
-  Registro,
-  Rescisao,
-  RG,
-  SalarioVigente,
-  Setores,
-  SetorUsuario,
-  TipoDescAcres,
-  Unidade,
-  Usuarios,
-};
+// Adicionar todos os modelos ao objeto `models`
+models.Adiantamento = Adiantamento;
+models.Bonificacao = Bonificacao;
+models.Colaborador = Colaborador;
+models.Contato = Contato;
+models.CPF = CPF;
+models.CTPS = CTPS;
+models.DecimoTerceiro = DecimoTerceiro;
+models.Dependentes = Dependentes;
+models.Empresa = Empresa;
+models.Endereco = Endereco;
+models.Escala = Escala;
+models.Escolaridade = Escolaridade;
+models.Estado = Estado;
+models.EstadoCivil = EstadoCivil;
+models.Ferias = Ferias;
+models.FuncaoEmpresa = FuncaoEmpresa;
+models.FuncaoRegistro = FuncaoRegistro;
+models.HistoricoSalario = HistoricoSalario;
+models.HorasExtras = HorasExtras;
+models.HorasFaltas = HorasFaltas;
+models.Periodo = Periodo;
+models.Municipio = Municipio;
+models.Nacionalidade = Nacionalidade;
+models.OutrosAcrescimos = OutrosAcrescimos;
+models.OutrosDescontos = OutrosDescontos;
+models.Pagamento = Pagamento;
+models.Registro = Registro;
+models.Rescisao = Rescisao;
+models.RG = RG;
+models.SalarioVigente = SalarioVigente;
+models.Setores = Setores;
+models.SetorUsuario = SetorUsuario;
+models.TipoDescAcres = TipoDescAcres;
+models.Unidade = Unidade;
+models.Usuarios = Usuarios;
 
-// Adicionar os modelos ao Sequelize
+// Definir associações entre os modelos
 Object.keys(models).forEach((modelName) => {
   if (models[modelName].associate) {
     models[modelName].associate(models);
   }
 });
 
-// Exporte os modelos e a instância do Sequelize
+// Exportar o sequelize e todos os modelos
 module.exports = {
   sequelize,
   ...models,

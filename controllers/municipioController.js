@@ -1,9 +1,14 @@
 // controllers/municipioController.js
-const Municipio = require('../models/Municipio');
+const { Municipio, Estado } = require('../models');
 
 const getMunicipio = async (req, res) => {
   try {
-    const municipio = await Municipio.findAll();
+    const municipio = await Municipio.findAll({
+      include: [{
+        model: Estado,
+        attributes: ['sigla'] // se quiser filtrar colunas
+      }]
+    });
     res.json(municipio);
   } catch (err) {
     res.status(500).send(err.message);

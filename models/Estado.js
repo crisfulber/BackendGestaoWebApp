@@ -30,4 +30,12 @@ const Estado = sequelize.define('Estado', {
   },
 });
 
+Estado.associate = (models) => {
+  // 1 Estado tem vários Municípios
+  Estado.hasMany(models.Municipio, {
+    foreignKey: 'estado_idestado', // campo em Municipio
+    sourceKey: 'idestado'          // campo em Estado
+  });
+};
+
 module.exports = Estado;

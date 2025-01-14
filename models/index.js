@@ -1,8 +1,6 @@
-// models/index.js
 const sequelize = require('../config/database');
 const models = {};
 
-// Importação de todos os modelos
 const Adiantamento = require('./Adiantamento');
 const Bonificacao = require('./Bonificacao');
 const Colaborador = require('./Colaborador');
@@ -39,7 +37,6 @@ const TipoDescAcres = require('./TipoDescAcres');
 const Unidade = require('./Unidade');
 const Usuarios = require('./Usuarios');
 
-// Adicionar todos os modelos ao objeto `models`
 models.Adiantamento = Adiantamento;
 models.Bonificacao = Bonificacao;
 models.Colaborador = Colaborador;
@@ -76,14 +73,12 @@ models.TipoDescAcres = TipoDescAcres;
 models.Unidade = Unidade;
 models.Usuarios = Usuarios;
 
-// Definir associações entre os modelos
 Object.keys(models).forEach((modelName) => {
   if (models[modelName].associate) {
     models[modelName].associate(models);
   }
 });
 
-// Exportar o sequelize e todos os modelos
 module.exports = {
   sequelize,
   ...models,

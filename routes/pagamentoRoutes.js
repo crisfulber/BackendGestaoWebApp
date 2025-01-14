@@ -1,4 +1,3 @@
-// routes/pagamentoRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getPagamento, createPagamento, updatePagamento, deletePagamento, getPagamentoById } = require('../controllers/pagamentoController');

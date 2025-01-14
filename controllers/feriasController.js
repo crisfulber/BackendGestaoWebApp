@@ -1,4 +1,3 @@
-// controllers/feriasController.js
 const Ferias = require('../models/Ferias');
 
 const getFerias = async (req, res) => {

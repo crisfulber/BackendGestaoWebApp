@@ -1,4 +1,3 @@
-// controllers/bonificacaoController.js
 const Bonificacao = require('../models/Bonificacao');
 
 const getBonificacao = async (req, res) => {

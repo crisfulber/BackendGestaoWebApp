@@ -1,4 +1,3 @@
-// controllers/setorUsuarioController.js
 const SetorUsuario = require('../models/SetorUsuario');
 
 const getSetorUsuario = async (req, res) => {

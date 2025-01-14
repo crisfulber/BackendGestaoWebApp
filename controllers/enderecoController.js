@@ -1,4 +1,3 @@
-// controllers/enderecoController.js
 const { Municipio } = require('../models');
 const Endereco = require('../models/Endereco');
 
@@ -7,7 +6,7 @@ const getEndereco = async (req, res) => {
     const endereco = await Endereco.findAll({
           include: [{
             model: Municipio,
-            attributes: ['nome'] // se quiser filtrar colunas
+            attributes: ['nome'] 
           }]
         });
     res.json(endereco);

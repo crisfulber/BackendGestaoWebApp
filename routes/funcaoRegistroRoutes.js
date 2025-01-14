@@ -1,4 +1,3 @@
-// routes/funcaoRegistroRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getFuncaoRegistro, createFuncaoRegistro, updateFuncaoRegistro, deleteFuncaoRegistro, getFuncaoRegistroById } = require('../controllers/funcaoRegistroController');

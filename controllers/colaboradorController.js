@@ -1,4 +1,3 @@
-// controllers/colaboradorController.js
 const { col } = require('sequelize');
 const Colaborador = require('../models/Colaborador');
 

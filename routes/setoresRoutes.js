@@ -1,4 +1,3 @@
-// routes/setoresRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getSetores, createSetores, updateSetores, deleteSetores, getSetoresById } = require('../controllers/setoresController');

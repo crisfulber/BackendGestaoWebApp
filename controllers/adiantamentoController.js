@@ -1,4 +1,3 @@
-// controllers/adiantamentoController.js
 const Adiantamento = require('../models/Adiantamento');
 
 const getAdiantamento = async (req, res) => {
@@ -13,11 +12,11 @@ const getAdiantamento = async (req, res) => {
 const getAdiantamentoById = async (req, res) => {
   try {
     const { id } = req.params;
-    const adiantamento = await Adiantamento.findOne({ where: { idadiantamento: id } }); 
+    const adiantamento = await Adiantamento.findOne({ where: { idadiantamento: id } });
     if (adiantamento) {
-      res.status(200).json(adiantamento); 
+      res.status(200).json(adiantamento);
     } else {
-      res.status(404).send('Adiantamento não encontrado'); 
+      res.status(404).send('Adiantamento não encontrado');
     }
   } catch (err) {
     res.status(500).send(err.message);

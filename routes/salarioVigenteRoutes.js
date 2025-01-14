@@ -1,4 +1,3 @@
-// routes/salarioVigenteRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getSalarioVigente, createSalarioVigente, updateSalarioVigente, deleteSalarioVigente, getSalarioVigenteById } = require('../controllers/salarioVigenteController');

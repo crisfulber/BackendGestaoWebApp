@@ -1,10 +1,9 @@
-// script de sincronização 
 const sequelize = require('./config/database');
 const models = require('./models');
 
 const syncDatabase = async () => {
   try {
-    await sequelize.sync({ force: true }); // use { force: false } se não quiser redefinir a base de dados
+    await sequelize.sync({ force: true });
     console.log('Database synchronized');
   } catch (error) {
     console.error('Error synchronizing database:', error);

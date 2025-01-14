@@ -1,4 +1,3 @@
-// controllers/usuariosController.js
 const Usuarios = require('../models/Usuarios');
 
 const getUsuarios = async (req, res) => {

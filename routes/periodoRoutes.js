@@ -1,4 +1,3 @@
-// routes/PeriodoRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getPeriodo, createPeriodo, updatePeriodo, deletePeriodo, getPeriodoById } = require('../controllers/PeriodoController');

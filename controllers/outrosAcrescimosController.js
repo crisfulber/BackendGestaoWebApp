@@ -1,4 +1,3 @@
-// controllers/outrosAcrescimosController.js
 const OutrosAcrescimos = require('../models/OutrosAcrescimos');
 
 const getOutrosAcrescimos = async (req, res) => {

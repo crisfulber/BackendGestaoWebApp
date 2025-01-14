@@ -1,4 +1,3 @@
-// routes/outrosAcrescimosRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getOutrosAcrescimos, createOutrosAcrescimos, updateOutrosAcrescimos, deleteOutrosAcrescimos, getOutrosAcrescimosById } = require('../controllers/outrosAcrescimosController');

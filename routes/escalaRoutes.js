@@ -1,4 +1,3 @@
-// routes/escalaRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getEscala, createEscala, updateEscala, deleteEscala, getEscalaById } = require('../controllers/escalaController');

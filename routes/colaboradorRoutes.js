@@ -1,4 +1,3 @@
-// routes/colaboradorRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getColaborador, createColaborador, updateColaborador, deleteColaborador, getColaboradorById } = require('../controllers/colaboradorController');

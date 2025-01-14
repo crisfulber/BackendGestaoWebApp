@@ -1,4 +1,3 @@
-// controllers/periodoController.js
 const Periodo = require('../models/Periodo');
 
 const getPeriodo = async (req, res) => {

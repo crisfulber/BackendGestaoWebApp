@@ -1,4 +1,3 @@
-// routes/outrosDescontosRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getOutrosDescontos, createOutrosDescontos, updateOutrosDescontos, deleteOutrosDescontos, getOutrosDescontosById } = require('../controllers/outrosDescontosController');

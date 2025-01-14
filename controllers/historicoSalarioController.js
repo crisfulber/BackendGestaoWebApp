@@ -1,4 +1,3 @@
-// controllers/historicoSalarioController.js
 const HistoricoSalario = require('../models/HistoricoSalario');
 
 const getHistoricoSalario = async (req, res) => {

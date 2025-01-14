@@ -1,4 +1,3 @@
-// routes/estadoRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getEstado, createEstado, updateEstado, deleteEstado, getEstadoById } = require('../controllers/estadoController');

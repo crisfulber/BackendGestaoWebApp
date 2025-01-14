@@ -1,4 +1,3 @@
-// controllers/horasExtrasController.js
 const HorasExtras = require('../models/HorasExtras');
 
 const getHorasExtras = async (req, res) => {

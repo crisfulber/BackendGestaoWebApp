@@ -1,4 +1,3 @@
-// routes/unidadeRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getUnidade, createUnidade, updateUnidade, deleteUnidade, getUnidadeById } = require('../controllers/unidadeController');

@@ -1,4 +1,3 @@
-// routes/rescisaoRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getRescisao, createRescisao, updateRescisao, deleteRescisao, getRescisaoById } = require('../controllers/rescisaoController');

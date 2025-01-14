@@ -1,4 +1,3 @@
-// controllers/funcaoEmpresaController.js
 const { Unidade, FuncaoEmpresa } = require('../models');
 
 const getFuncaoEmpresa = async (req, res) => {
@@ -6,7 +5,7 @@ const getFuncaoEmpresa = async (req, res) => {
     const funcaoEmpresa = await FuncaoEmpresa.findAll({
       include: [{
         model: Unidade,
-        attributes: ['nome'] // se quiser filtrar colunas
+        attributes: ['nome'] 
       }]
     });
     res.json(funcaoEmpresa);
@@ -22,7 +21,7 @@ const getFuncaoEmpresaById = async (req, res) => {
       where: { idfuncaoempresa: id },
       include: [{
         model: Unidade,
-        attributes: ['nome'] // se quiser filtrar colunas
+        attributes: ['nome'] 
       }] 
     }); 
     if (funcaoEmpresa) {

@@ -1,4 +1,3 @@
-// controllers/tipoDescAcresController.js
 const TipoDescAcres = require('../models/TipoDescAcres');
 
 const getTipoDescAcres = async (req, res) => {

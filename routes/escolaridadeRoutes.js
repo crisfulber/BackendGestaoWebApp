@@ -1,4 +1,3 @@
-// routes/escolaridadeRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getEscolaridade, createEscolaridade, updateEscolaridade, deleteEscolaridade, getEscolaridadeById } = require('../controllers/escolaridadeController');

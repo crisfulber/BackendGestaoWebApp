@@ -1,4 +1,3 @@
-// controllers/nacionalidadeController.js
 const Nacionalidade = require('../models/Nacionalidade');
 
 const getNacionalidade = async (req, res) => {

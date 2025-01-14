@@ -1,4 +1,3 @@
-// routes/nacionalidadeRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getNacionalidade, createNacionalidade, updateNacionalidade, deleteNacionalidade, getNacionalidadeById } = require('../controllers/nacionalidadeController');

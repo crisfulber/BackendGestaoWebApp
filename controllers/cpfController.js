@@ -1,4 +1,3 @@
-// controllers/cpfController.js
 const CPF = require('../models/CPF');
 
 const getCPF = async (req, res) => {

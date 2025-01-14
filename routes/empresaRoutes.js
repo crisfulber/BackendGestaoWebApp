@@ -1,4 +1,3 @@
-// routes/empresaRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getEmpresa, createEmpresa, updateEmpresa, deleteEmpresa, getEmpresaById } = require('../controllers/empresaController');

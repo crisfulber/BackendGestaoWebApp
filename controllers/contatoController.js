@@ -1,4 +1,3 @@
-// controllers/contatoController.js
 const Contato = require('../models/Contato');
 
 const getContato = async (req, res) => {

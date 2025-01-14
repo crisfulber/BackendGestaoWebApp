@@ -1,4 +1,3 @@
-// controllers/escolaridadeController.js
 const Escolaridade = require('../models/Escolaridade');
 
 const getEscolaridade = async (req, res) => {

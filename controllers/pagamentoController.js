@@ -1,4 +1,3 @@
-// controllers/pagamentoController.js
 const Pagamento = require('../models/Pagamento');
 
 const getPagamento = async (req, res) => {

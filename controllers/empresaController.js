@@ -1,9 +1,8 @@
-// controllers/empresaController.js
 const Empresa = require('../models/Empresa');
 const Endereco = require('../models/Endereco');
 const Municipio = require('../models/Municipio');
 const SalarioVigente = require('../models/SalarioVigente');
-const { sequelize } = require('../models'); // Para usar transação
+const { sequelize } = require('../models'); 
 
 const getEmpresa = async (req, res) => {
   try {
@@ -62,12 +61,11 @@ const getEmpresaById = async (req, res) => {
 
 
 const createEmpresa = async (req, res) => {
-  console.log('req.body =>', req.body); // Ver o que chegou do front
+  console.log('req.body =>', req.body); 
   const transaction = await sequelize.transaction();
   try {
     let enderecoId = req.body.endereco_idendereco || null;
 
-    // Ajuste para verificar o endereço no formato correto
     if (req.body['endereco.rua']) {
       console.log('Criando Endereco com:', req.body);
       const enderecoData = {
@@ -88,7 +86,7 @@ const createEmpresa = async (req, res) => {
 
     const novaEmpresa = await Empresa.create({
       nome: req.body.nome,
-      endereco_idendereco: enderecoId, // se null, falha se a tabela exige not null
+      endereco_idendereco: enderecoId, 
       salariovigente_idsalariovigente: req.body.salariovigente_idsalariovigente
     }, { transaction });
 
@@ -108,12 +106,8 @@ const updateEmpresa = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // 1) Se veio "Endereco" no body, atualize ou crie (depende da sua lógica).
-    //    Você pode buscar o antigo e dar .update() ou, se não existir, criar.
     let enderecoId = req.body.endereco_idendereco;
     if (req.body.Endereco) {
-      // Se a empresa já tem 'endereco_idendereco', você pode buscar e dar update:
-      // ou, se quiser, criar um novo Endereco do zero.
       if (enderecoId) {
         await Endereco.update(req.body.Endereco, {
           where: { idendereco: enderecoId },
@@ -125,7 +119,6 @@ const updateEmpresa = async (req, res) => {
       }
     }
 
-    // 2) Se veio "SalarioVigente" no body, faz algo similar
     let salarioVigenteId = req.body.salariovigente_idsalariovigente;
     if (req.body.SalarioVigente) {
       if (salarioVigenteId) {
@@ -139,7 +132,6 @@ const updateEmpresa = async (req, res) => {
       }
     }
 
-    // 3) Atualizar a empresa
     const [updated] = await Empresa.update({
       nome: req.body.nome,
       endereco_idendereco: enderecoId,
@@ -154,7 +146,6 @@ const updateEmpresa = async (req, res) => {
       return res.status(404).send('Empresa não encontrada');
     }
 
-    // Se chegou aqui, commit e retorne a empresa atualizada
     await transaction.commit();
     const updatedEmpresa = await Empresa.findOne({ where: { idempresa: id } });
     return res.status(200).json(updatedEmpresa);

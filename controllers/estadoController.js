@@ -1,4 +1,3 @@
-// controllers/estadoController.js
 const Estado = require('../models/Estado');
 
 const getEstado = async (req, res) => {

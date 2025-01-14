@@ -1,4 +1,3 @@
-// routes/contatoRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getContato, createContato, updateContato, deleteContato, getContatoById } = require('../controllers/contatoController');

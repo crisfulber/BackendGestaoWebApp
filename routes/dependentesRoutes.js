@@ -1,4 +1,3 @@
-// routes/dependentesRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getDependentes, createDependentes, updateDependentes, deleteDependentes, getDependentesById } = require('../controllers/dependentesController');

@@ -1,4 +1,3 @@
-// controllers/salarioVigenteController.js
 const { Empresa } = require('../models');
 const SalarioVigente = require('../models/SalarioVigente');
 
@@ -7,7 +6,7 @@ const getSalarioVigente = async (req, res) => {
     const salarioVigente = await SalarioVigente.findAll({
           include: [{
             model: Empresa,
-            attributes: ['nome'] // se quiser filtrar colunas
+            attributes: ['nome'] 
           }]
         });
     res.json(salarioVigente);

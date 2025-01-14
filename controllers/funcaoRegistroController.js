@@ -1,4 +1,3 @@
-// controllers/funcaoRegistroController.js
 const FuncaoRegistro = require('../models/FuncaoRegistro');
 
 const getFuncaoRegistro = async (req, res) => {

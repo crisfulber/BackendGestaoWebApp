@@ -1,4 +1,3 @@
-// controllers/decimoTerceiroController.js
 const DecimoTerceiro = require('../models/DecimoTerceiro');
 
 const getDecimoTerceiro = async (req, res) => {

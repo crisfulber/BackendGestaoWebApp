@@ -1,4 +1,3 @@
-// routes/setorUsuarioRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getSetorUsuario, createSetorUsuario, updateSetorUsuario, deleteSetorUsuario, getSetorUsuarioById } = require('../controllers/setorUsuarioController');

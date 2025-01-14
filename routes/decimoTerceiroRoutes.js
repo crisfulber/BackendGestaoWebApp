@@ -1,4 +1,3 @@
-// routes/decimoTerceiroRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getDecimoTerceiro, createDecimoTerceiro, updateDecimoTerceiro, deleteDecimoTerceiro, getDecimoTerceiroById } = require('../controllers/decimoTerceiroController');

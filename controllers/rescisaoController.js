@@ -1,4 +1,3 @@
-// controllers/rescisaoController.js
 const Rescisao = require('../models/Rescisao');
 
 const getRescisao = async (req, res) => {

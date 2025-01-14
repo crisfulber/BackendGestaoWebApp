@@ -1,4 +1,3 @@
-// routes/funcaoEmpresaRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getFuncaoEmpresa, createFuncaoEmpresa, updateFuncaoEmpresa, deleteFuncaoEmpresa, getFuncaoEmpresaById } = require('../controllers/funcaoEmpresaController');

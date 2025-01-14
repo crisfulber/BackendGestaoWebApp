@@ -1,4 +1,3 @@
-// routes/registroRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getRegistro, createRegistro, updateRegistro, deleteRegistro, getRegistroById } = require('../controllers/registroController');

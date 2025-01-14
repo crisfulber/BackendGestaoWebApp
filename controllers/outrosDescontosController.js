@@ -1,4 +1,3 @@
-// controllers/outrosDescontosController.js
 const OutrosDescontos = require('../models/OutrosDescontos');
 
 const getOutrosDescontos = async (req, res) => {

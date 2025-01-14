@@ -1,4 +1,3 @@
-// routes/tipoDescAcresRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getTipoDescAcres, createTipoDescAcres, updateTipoDescAcres, deleteTipoDescAcres, getTipoDescAcresById } = require('../controllers/tipoDescAcresController');

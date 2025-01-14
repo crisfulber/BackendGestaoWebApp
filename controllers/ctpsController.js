@@ -1,4 +1,3 @@
-// controllers/ctpsController.js
 const CTPS = require('../models/CTPS');
 
 const getCTPS = async (req, res) => {

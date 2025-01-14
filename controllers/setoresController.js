@@ -1,4 +1,3 @@
-// controllers/setoresController.js
 const { Unidade, Setores } = require('../models');
 
 const getSetores = async (req, res) => {
@@ -6,7 +5,7 @@ const getSetores = async (req, res) => {
     const setores = await Setores.findAll({
       include: [{
         model: Unidade,
-        attributes: ['nome'] // se quiser filtrar colunas
+        attributes: ['nome'] 
       }]
     });
     res.json(setores);
@@ -15,7 +14,6 @@ const getSetores = async (req, res) => {
   }
 };
 
-// Obter um setor pelo ID
 const getSetoresById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -23,39 +21,37 @@ const getSetoresById = async (req, res) => {
       where: { idsetores: id },
       include: [{
         model: Unidade,
-        attributes: ['nome'] // se quiser filtrar colunas
+        attributes: ['nome'] 
       }]
-    }); // Busca o setor pelo ID
+    }); 
     if (setor) {
-      res.status(200).json(setor); // Retorna o setor encontrado
+      res.status(200).json(setor); 
     } else {
-      res.status(404).send('Setor não encontrado'); // Retorna 404 se não encontrar
+      res.status(404).send('Setor não encontrado'); 
     }
   } catch (err) {
     res.status(500).send(err.message);
   }
 };
 
-// Criar um novo setor
 const createSetores = async (req, res) => {
   try {
-    const setor = await Setores.create(req.body); // Cria um novo setor
-    res.status(201).json(setor); // Retorna o setor criado
+    const setor = await Setores.create(req.body); 
+    res.status(201).json(setor); 
   } catch (err) {
     res.status(500).send(err.message);
   }
 };
 
-// Atualizar um setor existente
 const updateSetores = async (req, res) => {
   try {
     const { id } = req.params;
     const [updated] = await Setores.update(req.body, {
-      where: { idsetores: id } // Atualiza com base no ID
+      where: { idsetores: id } 
     });
     if (updated) {
       const updatedSetores = await Setores.findOne({ where: { idsetores: id } });
-      res.status(200).json(updatedSetores); // Retorna o setor atualizado
+      res.status(200).json(updatedSetores); 
     } else {
       res.status(404).send('Setor não encontrado');
     }
@@ -64,12 +60,11 @@ const updateSetores = async (req, res) => {
   }
 };
 
-// Deletar um setor existente
 const deleteSetores = async (req, res) => {
   try {
     const { id } = req.params;
     const deleted = await Setores.destroy({
-      where: { idsetores: id } // Remove com base no ID
+      where: { idsetores: id } 
     });
     if (deleted) {
       res.status(204).send('Setor deletado');
@@ -81,7 +76,6 @@ const deleteSetores = async (req, res) => {
   }
 };
 
-// Exporta os métodos
 module.exports = {
   getSetores,
   getSetoresById,

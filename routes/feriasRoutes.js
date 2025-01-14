@@ -1,4 +1,3 @@
-// routes/feriasRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getFerias, createFerias, updateFerias, deleteFerias, getFeriasById } = require('../controllers/feriasController');

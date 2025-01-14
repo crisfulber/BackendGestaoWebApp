@@ -1,4 +1,3 @@
-// routes/horasExtrasRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getHorasExtras, createHorasExtras, updateHorasExtras, deleteHorasExtras, getHorasExtrasById } = require('../controllers/horasExtrasController');

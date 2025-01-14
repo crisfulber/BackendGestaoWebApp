@@ -1,4 +1,3 @@
-// controllers/registroController.js
 const Registro = require('../models/Registro');
 
 const getRegistro = async (req, res) => {

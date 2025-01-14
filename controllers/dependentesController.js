@@ -1,4 +1,3 @@
-// controllers/dependentesController.js
 const Dependentes = require('../models/Dependentes');
 
 const getDependentes = async (req, res) => {

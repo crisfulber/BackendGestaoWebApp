@@ -1,4 +1,3 @@
-// routes/rgRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getRG, createRG, updateRG, deleteRG, getRGById } = require('../controllers/rgController');

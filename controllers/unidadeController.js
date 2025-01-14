@@ -1,4 +1,3 @@
-// controllers/unidadeController.js
 const { Empresa, Endereco, Unidade, Municipio, sequelize } = require('../models');
 
 const getUnidade = async (req, res) => {
@@ -7,14 +6,14 @@ const getUnidade = async (req, res) => {
       include: [
         {
           model: Empresa,
-          attributes: ['nome'] // Inclui apenas o nome da empresa
+          attributes: ['nome'] 
         },
         {
           model: Endereco,
           attributes: ['rua', 'numero', 'complemento', 'bairro', 'cep'],
           include: {
             model: Municipio,
-            attributes: ['nome'] // Inclui apenas o nome do município
+            attributes: ['nome'] 
           }
         }
       ]
@@ -56,12 +55,11 @@ const getUnidadeById = async (req, res) => {
 };
 
 const createUnidade = async (req, res) => {
-  console.log('req.body =>', req.body); // Ver o que chegou do front
+  console.log('req.body =>', req.body); 
   const transaction = await sequelize.transaction();
   try {
     let enderecoId = req.body.endereco_idendereco || null;
 
-    // Ajuste para verificar o endereço no formato correto
     if (req.body['endereco.rua']) {
       console.log('Criando Endereco com:', req.body);
       const enderecoData = {
@@ -78,7 +76,6 @@ const createUnidade = async (req, res) => {
       console.log('Nenhum subobjeto Endereco recebido.');
     }
 
-    // Verifica se a empresa existe
     const empresa = await Empresa.findOne({
       where: { idempresa: req.body.empresa_idempresa }
     });
@@ -89,8 +86,8 @@ const createUnidade = async (req, res) => {
 
     const novaUnidade = await Unidade.create({
       nome: req.body.nome,
-      endereco_idendereco: enderecoId, // se null, falha se a tabela exige not null
-      empresa_idempresa: req.body.empresa_idempresa // Associa à empresa existente
+      endereco_idendereco: enderecoId, 
+      empresa_idempresa: req.body.empresa_idempresa 
     }, { transaction });
 
     await transaction.commit();

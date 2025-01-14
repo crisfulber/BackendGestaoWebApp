@@ -1,4 +1,3 @@
-// controllers/escalaController.js
 const Escala = require('../models/Escala');
 
 const getEscala = async (req, res) => {

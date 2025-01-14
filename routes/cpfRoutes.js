@@ -1,4 +1,3 @@
-// routes/cpfRoutes.js
 const express = require('express');
 const router = express.Router();
 const { getCPF, createCPF, updateCPF, deleteCPF, getCPFById } = require('../controllers/cpfController');

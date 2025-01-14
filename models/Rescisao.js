@@ -1,6 +1,6 @@
 // models/Rescisao.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Rescisao = sequelize.define('Rescisao', {
   idrescisao: {
@@ -12,7 +12,7 @@ const Rescisao = sequelize.define('Rescisao', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador', 
       key: 'idcolaborador'
     }
   },
@@ -25,8 +25,8 @@ const Rescisao = sequelize.define('Rescisao', {
     allowNull: false
   }
 }, {
-  tableName: 'rescisao', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'rescisao', 
+  timestamps: false 
 });
 
 module.exports = Rescisao;

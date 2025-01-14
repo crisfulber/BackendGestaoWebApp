@@ -1,6 +1,6 @@
 // models/Endereco.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Endereco = sequelize.define('Endereco', {
   idendereco: {
@@ -32,13 +32,31 @@ const Endereco = sequelize.define('Endereco', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Municipio', // Nome da tabela referenciada
+      model: 'Municipio', 
       key: 'idmunicipio'
     }
   }
 }, {
-  tableName: 'endereco', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'endereco', 
+  timestamps: false, 
+  hooks: {
+    beforeSave: (endereco) => {
+      const fieldsToUpper = ['rua', 'complemento', 'bairro'];
+  
+      fieldsToUpper.forEach((field) => {
+        if (typeof endereco[field] === 'string') {
+          endereco[field] = endereco[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
+
+Endereco.associate = (models) => {
+  Endereco.belongsTo(models.Municipio, {
+    foreignKey: 'municipio_idmunicipio', 
+    targetKey: 'idmunicipio'            
+  });
+};
 
 module.exports = Endereco;

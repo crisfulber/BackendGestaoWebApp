@@ -1,6 +1,6 @@
 // models/OutrosDescontos.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const OutrosDescontos = sequelize.define('OutrosDescontos', {
   idoutrosdescontos: {
@@ -12,7 +12,7 @@ const OutrosDescontos = sequelize.define('OutrosDescontos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador', 
       key: 'idcolaborador'
     }
   },
@@ -20,7 +20,7 @@ const OutrosDescontos = sequelize.define('OutrosDescontos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'TipoDescAcres', // Nome da tabela referenciada
+      model: 'TipoDescAcres', 
       key: 'idtipodescacres'
     }
   },
@@ -32,7 +32,7 @@ const OutrosDescontos = sequelize.define('OutrosDescontos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Periodo', // Nome da tabela referenciada
+      model: 'Periodo', 
       key: 'idperiodo'
     }
   },
@@ -41,8 +41,8 @@ const OutrosDescontos = sequelize.define('OutrosDescontos', {
     allowNull: false
   }
 }, {
-  tableName: 'outrosdescontos', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'outrosdescontos', 
+  timestamps: false 
 });
 
 module.exports = OutrosDescontos;

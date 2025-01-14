@@ -1,6 +1,6 @@
 // models/Empresa.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Empresa = sequelize.define('Empresa', {
   idempresa: {
@@ -16,7 +16,7 @@ const Empresa = sequelize.define('Empresa', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Endereco', // Nome da tabela referenciada
+      model: 'Endereco',
       key: 'idendereco'
     }
   },
@@ -24,13 +24,35 @@ const Empresa = sequelize.define('Empresa', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'SalarioVigente', // Nome da tabela referenciada
+      model: 'SalarioVigente',
       key: 'idsalariovigente'
     }
-  }
+  },
 }, {
-  tableName: 'empresa', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'empresa',
+  timestamps: false,
+  hooks: {
+    beforeSave: (empresa) => {
+      const fieldsToUpper = ['nome'];
+
+      fieldsToUpper.forEach((field) => {
+        if (typeof empresa[field] === 'string') {
+          empresa[field] = empresa[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
+
+Empresa.associate = (models) => {
+  Empresa.belongsTo(models.SalarioVigente, {
+    foreignKey: 'salariovigente_idsalariovigente', 
+    targetKey: 'idsalariovigente'                  
+  });
+  Empresa.belongsTo(models.Endereco, {
+    foreignKey: 'endereco_idendereco',       
+    targetKey: 'idendereco'               
+  });
+};
 
 module.exports = Empresa;

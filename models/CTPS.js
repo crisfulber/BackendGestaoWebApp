@@ -1,6 +1,6 @@
 // models/CTPS.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const CTPS = sequelize.define('CTPS', {
   idctps: {
@@ -29,13 +29,13 @@ const CTPS = sequelize.define('CTPS', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Estado', // Nome da tabela referenciada
+      model: 'Estado',
       key: 'idestado'
     }
   }
 }, {
-  tableName: 'ctps', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'ctps',
+  timestamps: false 
 });
 
 module.exports = CTPS;

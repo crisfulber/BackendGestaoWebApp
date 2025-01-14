@@ -1,6 +1,6 @@
 // models/Escala.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Escala = sequelize.define('Escala', {
   idescala: {
@@ -33,8 +33,19 @@ const Escala = sequelize.define('Escala', {
     allowNull: false
   }
 }, {
-  tableName: 'escala', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'escala', 
+  timestamps: false,
+  hooks: {
+    beforeSave: (escala) => {
+      const fieldsToUpper = ['nome', 'descricao'];
+
+      fieldsToUpper.forEach((field) => {
+        if (typeof escala[field] === 'string') {
+          escala[field] = escala[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
 
 module.exports = Escala;

@@ -1,6 +1,6 @@
 // models/Registro.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Registro = sequelize.define('Registro', {
   idregistro: {
@@ -12,7 +12,7 @@ const Registro = sequelize.define('Registro', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador',
       key: 'idcolaborador'
     }
   },
@@ -24,7 +24,7 @@ const Registro = sequelize.define('Registro', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'HistoricoFuncao', // Nome da tabela referenciada
+      model: 'HistoricoFuncao',
       key: 'idhistoricofuncao'
     }
   },
@@ -32,7 +32,7 @@ const Registro = sequelize.define('Registro', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'FuncaoRegistro', // Nome da tabela referenciada
+      model: 'FuncaoRegistro', 
       key: 'idfuncaoregistro'
     }
   },
@@ -40,13 +40,13 @@ const Registro = sequelize.define('Registro', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'HistoricoSalario', // Nome da tabela referenciada
+      model: 'HistoricoSalario', 
       key: 'idhistoricosalario'
     }
   }
 }, {
-  tableName: 'registro', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'registro', 
+  timestamps: false 
 });
 
 module.exports = Registro;

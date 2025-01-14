@@ -1,6 +1,6 @@
 // models/Unidade.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Unidade = sequelize.define('Unidade', {
   idunidade: {
@@ -12,19 +12,11 @@ const Unidade = sequelize.define('Unidade', {
     type: DataTypes.STRING,
     allowNull: false
   },
-  setores_idsetores: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-    references: {
-      model: 'Setores', // Nome da tabela referenciada
-      key: 'idsetores'
-    }
-  },
   endereco_idendereco: {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Endereco', // Nome da tabela referenciada
+      model: 'Endereco', 
       key: 'idendereco'
     }
   },
@@ -32,13 +24,41 @@ const Unidade = sequelize.define('Unidade', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Empresa', // Nome da tabela referenciada
+      model: 'Empresa', 
       key: 'idempresa'
     }
   }
 }, {
-  tableName: 'unidade', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'unidade', 
+  timestamps: false, 
+  hooks: {
+    beforeSave: (unidade) => {
+      const fieldsToUpper = ['nome'];
+
+      fieldsToUpper.forEach((field) => {
+        if (typeof unidade[field] === 'string') {
+          unidade[field] = unidade[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
+
+Unidade.associate = (models) => {
+  // 1 Unidade pertence a 1 Empresa
+  Unidade.belongsTo(models.Empresa, {
+    foreignKey: 'empresa_idempresa',  // chave estrangeira em Unidade
+    targetKey: 'idempresa'           // chave primária em Empresa
+  });
+  Unidade.belongsTo(models.Endereco, {
+    foreignKey: 'endereco_idendereco',  // chave estrangeira em Unidade
+    targetKey: 'idendereco'           // chave primária em Endereco
+  });
+  // 1 Unidade possui vários Setores
+  Unidade.hasMany(models.Setores, {
+    foreignKey: 'unidade_idunidade', // chave estrangeira em Setores
+    sourceKey: 'idunidade'             // chave primária em Unidade
+  });
+};
 
 module.exports = Unidade;

@@ -1,6 +1,6 @@
 // models/Estado.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Estado = sequelize.define('Estado', {
   idestado: {
@@ -18,8 +18,8 @@ const Estado = sequelize.define('Estado', {
     unique: true
   }
 }, {
-  tableName: 'estado', // Nome da tabela no banco de dados
-  timestamps: false, // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'estado', 
+  timestamps: false, 
   hooks: {
     beforeSave: (estado) => {
       if (typeof estado.nome === 'string') {
@@ -31,10 +31,9 @@ const Estado = sequelize.define('Estado', {
 });
 
 Estado.associate = (models) => {
-  // 1 Estado tem vários Municípios
   Estado.hasMany(models.Municipio, {
-    foreignKey: 'estado_idestado', // campo em Municipio
-    sourceKey: 'idestado'          // campo em Estado
+    foreignKey: 'estado_idestado', 
+    sourceKey: 'idestado'         
   });
 };
 

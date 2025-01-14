@@ -1,6 +1,6 @@
 // models/Dependentes.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Dependentes = sequelize.define('Dependentes', {
   iddependentes: {
@@ -20,13 +20,13 @@ const Dependentes = sequelize.define('Dependentes', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'CPF', // Nome da tabela referenciada
+      model: 'CPF', 
       key: 'idcpf'
     }
   }
 }, {
-  tableName: 'dependentes', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'dependentes', 
+  timestamps: false 
 });
 
 module.exports = Dependentes;

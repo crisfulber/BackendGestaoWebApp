@@ -1,6 +1,6 @@
 // models/SetorUsuario.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const SetorUsuario = sequelize.define('SetorUsuario', {
   idsetorusuario: {
@@ -13,8 +13,8 @@ const SetorUsuario = sequelize.define('SetorUsuario', {
     allowNull: false
   }
 }, {
-  tableName: 'setorusuario', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'setorusuario', 
+  timestamps: false 
 });
 
 module.exports = SetorUsuario;

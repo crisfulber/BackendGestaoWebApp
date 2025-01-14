@@ -1,6 +1,6 @@
 // models/Contato.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Contato = sequelize.define('Contato', {
   idcontato: {
@@ -24,8 +24,8 @@ const Contato = sequelize.define('Contato', {
     allowNull: false
   }
 }, {
-  tableName: 'contato', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'contato', 
+  timestamps: false 
 });
 
 module.exports = Contato;

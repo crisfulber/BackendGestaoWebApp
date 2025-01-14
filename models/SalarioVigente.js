@@ -1,6 +1,6 @@
 // models/SalarioVigente.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const SalarioVigente = sequelize.define('SalarioVigente', {
   idsalariovigente: {
@@ -19,18 +19,33 @@ const SalarioVigente = sequelize.define('SalarioVigente', {
   valor: {
     type: DataTypes.FLOAT,
     allowNull: false
+  },
+  empresa_idempresa: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'Empresa', 
+      key: 'idempresa'
+    }
   }
 }, {
-  tableName: 'salariovigente', // Nome da tabela no banco de dados
-  timestamps: false, // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
-  hooks: {
-    beforeSave: (salariovigente) => {
-      if (typeof salariovigente.nome === 'string') {
-        console.log(`Transformando nome para maiúsculas: ${salariovigente.nome}`);
-        salariovigente.nome = salariovigente.nome.toUpperCase();
-      }
-    },
-  },
+  tableName: 'salariovigente', 
+  timestamps: false 
 });
+
+SalarioVigente.associate = (models) => {
+  SalarioVigente.hasMany(models.Empresa, {
+    foreignKey: 'salariovigente_idsalariovigente', 
+    sourceKey: 'idsalariovigente'                  
+  });
+};
+
+SalarioVigente.associate = (models) => {
+  SalarioVigente.belongsTo(models.Empresa, {
+    foreignKey: 'empresa_idempresa',  
+    targetKey: 'idempresa'           
+  });
+  
+};
 
 module.exports = SalarioVigente;

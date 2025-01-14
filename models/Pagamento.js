@@ -1,6 +1,6 @@
 // models/Pagamento.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Pagamento = sequelize.define('Pagamento', {
   idpagamento: {
@@ -12,7 +12,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Periodo', // Nome da tabela referenciada
+      model: 'Periodo', 
       key: 'idperiodo'
     }
   },
@@ -20,7 +20,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador', 
       key: 'idcolaborador'
     }
   },
@@ -28,7 +28,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'HistoricoSalario', // Nome da tabela referenciada
+      model: 'HistoricoSalario',
       key: 'idhistoricosalario'
     }
   },
@@ -36,7 +36,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Bonificacao', // Nome da tabela referenciada
+      model: 'Bonificacao', 
       key: 'idbonificacao'
     }
   },
@@ -44,7 +44,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'OutrosAcrescimos', // Nome da tabela referenciada
+      model: 'OutrosAcrescimos', 
       key: 'idoutrosacrescimos'
     }
   },
@@ -52,7 +52,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'HorasExtras', // Nome da tabela referenciada
+      model: 'HorasExtras', 
       key: 'idhorasextras'
     }
   },
@@ -60,7 +60,7 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'HorasFaltas', // Nome da tabela referenciada
+      model: 'HorasFaltas', 
       key: 'idhorasfaltas'
     }
   },
@@ -68,13 +68,13 @@ const Pagamento = sequelize.define('Pagamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Adiantamento', // Nome da tabela referenciada
+      model: 'Adiantamento',
       key: 'idadiantamento'
     }
   }
 }, {
-  tableName: 'pagamento', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'pagamento',
+  timestamps: false 
 });
 
 module.exports = Pagamento;

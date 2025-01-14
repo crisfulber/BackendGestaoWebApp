@@ -1,6 +1,6 @@
 // models/Usuarios.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Usuarios = sequelize.define('Usuarios', {
   idusuario: {
@@ -24,13 +24,13 @@ const Usuarios = sequelize.define('Usuarios', {
     type: DataTypes.INTEGER,
     allowNull: true,
     references: {
-      model: 'SetorUsuario', // Nome da tabela referenciada
+      model: 'SetorUsuario', 
       key: 'idsetorusuario'
     }
   }
 }, {
-  tableName: 'usuarios', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'usuarios',
+  timestamps: false 
 });
 
 module.exports = Usuarios;

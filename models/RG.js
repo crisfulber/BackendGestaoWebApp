@@ -1,6 +1,6 @@
 // models/RG.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const RG = sequelize.define('RG', {
   idrg: {
@@ -37,13 +37,24 @@ const RG = sequelize.define('RG', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Estado', // Nome da tabela referenciada
+      model: 'Estado',
       key: 'idestado'
     }
   }
 }, {
-  tableName: 'rg', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'rg',
+  timestamps: false,
+  hooks: {
+    beforeSave: (rg) => {
+      const fieldsToUpper = ['orgao', 'nomepai', 'nomemae'];
+
+      fieldsToUpper.forEach((field) => {
+        if (typeof rg[field] === 'string') {
+          rg[field] = rg[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
 
 module.exports = RG;

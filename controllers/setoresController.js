@@ -1,14 +1,16 @@
 // controllers/setoresController.js
-const Setores = require('../models/Setores');
+const { Unidade, Setores } = require('../models');
 
-// Obter todos os setores
 const getSetores = async (req, res) => {
   try {
-    const setores = await Setores.findAll(); // Busca todos os setores do banco
-    console.log('Setores encontrados:', setores); // Log para depuração
+    const setores = await Setores.findAll({
+      include: [{
+        model: Unidade,
+        attributes: ['nome'] // se quiser filtrar colunas
+      }]
+    });
     res.json(setores);
   } catch (err) {
-    console.error('Erro ao buscar setores:', err); // Log de erro
     res.status(500).send(err.message);
   }
 };
@@ -17,7 +19,13 @@ const getSetores = async (req, res) => {
 const getSetoresById = async (req, res) => {
   try {
     const { id } = req.params;
-    const setor = await Setores.findOne({ where: { idsetores: id } }); // Busca o setor pelo ID
+    const setor = await Setores.findOne({ 
+      where: { idsetores: id },
+      include: [{
+        model: Unidade,
+        attributes: ['nome'] // se quiser filtrar colunas
+      }]
+    }); // Busca o setor pelo ID
     if (setor) {
       res.status(200).json(setor); // Retorna o setor encontrado
     } else {

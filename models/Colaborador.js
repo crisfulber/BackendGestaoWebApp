@@ -1,6 +1,6 @@
 // models/Colaborador.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Colaborador = sequelize.define('Colaborador', {
   idcolaborador: {
@@ -35,7 +35,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'FuncaoEmpresa', // Nome da tabela referenciada
+      model: 'FuncaoEmpresa', 
       key: 'idfuncaoempresa'
     }
   },
@@ -43,7 +43,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Escala', // Nome da tabela referenciada
+      model: 'Escala', 
       key: 'idescala'
     }
   },
@@ -51,7 +51,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'RG', // Nome da tabela referenciada
+      model: 'RG',
       key: 'idrg'
     }
   },
@@ -59,7 +59,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'CTPS', // Nome da tabela referenciada
+      model: 'CTPS', 
       key: 'idctps'
     }
   },
@@ -67,7 +67,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Contato', // Nome da tabela referenciada
+      model: 'Contato', 
       key: 'idcontato'
     }
   },
@@ -75,7 +75,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Nacionalidade', // Nome da tabela referenciada
+      model: 'Nacionalidade', 
       key: 'idnacionalidade'
     }
   },
@@ -83,7 +83,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Escolaridade', // Nome da tabela referenciada
+      model: 'Escolaridade',
       key: 'idescolaridade'
     }
   },
@@ -91,7 +91,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Dependentes', // Nome da tabela referenciada
+      model: 'Dependentes', 
       key: 'iddependentes'
     }
   },
@@ -99,7 +99,7 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'EstadoCivil', // Nome da tabela referenciada
+      model: 'EstadoCivil', 
       key: 'idestadocivil'
     }
   },
@@ -107,13 +107,13 @@ const Colaborador = sequelize.define('Colaborador', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Endereco', // Nome da tabela referenciada
+      model: 'Endereco', 
       key: 'idendereco'
     }
   }
 }, {
-  tableName: 'colaborador', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'colaborador', 
+  timestamps: false 
 });
 
 module.exports = Colaborador;

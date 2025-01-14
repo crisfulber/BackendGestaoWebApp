@@ -1,6 +1,6 @@
 // models/Escolaridade.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Escolaridade = sequelize.define('Escolaridade', {
   idescolaridade: {
@@ -13,8 +13,8 @@ const Escolaridade = sequelize.define('Escolaridade', {
     allowNull: false
   }
 }, {
-  tableName: 'escolaridade', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'escolaridade', 
+  timestamps: false 
 });
 
 module.exports = Escolaridade;

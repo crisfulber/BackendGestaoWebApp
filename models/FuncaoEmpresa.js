@@ -1,6 +1,6 @@
 // models/FuncaoEmpresa.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const FuncaoEmpresa = sequelize.define('FuncaoEmpresa', {
   idfuncaoempresa: {
@@ -8,13 +8,37 @@ const FuncaoEmpresa = sequelize.define('FuncaoEmpresa', {
     primaryKey: true,
     autoIncrement: true
   },
-  descricao: {
+  nome: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
+  },
+  unidade_idunidade: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'Unidade', 
+      key: 'idunidade'
+    }
   }
 }, {
-  tableName: 'funcaoempresa', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'funcaoempresa', 
+  timestamps: false,
+  hooks: {
+    beforeSave: (setor) => {
+      if (typeof setor.nome === 'string') {
+        console.log(`Transformando nome para maiúsculas: ${setor.nome}`);
+        setor.nome = setor.nome.toUpperCase();
+      }
+    },
+  },
 });
+
+FuncaoEmpresa.associate = (models) => {
+  FuncaoEmpresa.belongsTo(models.Unidade, {
+    foreignKey: 'unidade_idunidade',  
+    targetKey: 'idunidade'           
+  });
+
+};
 
 module.exports = FuncaoEmpresa;

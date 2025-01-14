@@ -1,6 +1,6 @@
 // models/Setores.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const Setores = sequelize.define('Setores', {
   idsetores: {
@@ -12,6 +12,14 @@ const Setores = sequelize.define('Setores', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  unidade_idunidade: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    references: {
+      model: 'Unidade', 
+      key: 'idunidade'
+    }
+  }
 }, {
   tableName: 'setores',
   timestamps: false,
@@ -25,5 +33,13 @@ const Setores = sequelize.define('Setores', {
   },
 }
 );
+
+Setores.associate = (models) => {
+  Setores.belongsTo(models.Unidade, {
+    foreignKey: 'unidade_idunidade',  
+    targetKey: 'idunidade'           
+  });
+
+};
 
 module.exports = Setores;

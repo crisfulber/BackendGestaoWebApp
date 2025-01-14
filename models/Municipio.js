@@ -1,6 +1,6 @@
 // models/Municipio.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Municipio = sequelize.define('Municipio', {
   idmunicipio: {
@@ -16,20 +16,35 @@ const Municipio = sequelize.define('Municipio', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Estado', // Nome da tabela referenciada
+      model: 'Estado',
       key: 'idestado'
     }
   }
 }, {
-  tableName: 'municipio', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'municipio',
+  timestamps: false,
+  hooks: {
+    beforeSave: (municipio) => {
+      const fieldsToUpper = ['nome'];
+
+      fieldsToUpper.forEach((field) => {
+        if (typeof municipio[field] === 'string') {
+          municipio[field] = municipio[field].toUpperCase();
+        }
+      });
+    },
+  },
 });
 
 Municipio.associate = (models) => {
-  // 1 Município pertence a 1 Estado
   Municipio.belongsTo(models.Estado, {
     foreignKey: 'estado_idestado',
     targetKey: 'idestado'
+  });
+
+  Municipio.hasMany(models.Endereco, {
+    foreignKey: 'municipio_idmunicipio',
+    sourceKey: 'idmunicipio'
   });
 };
 

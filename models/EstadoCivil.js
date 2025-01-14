@@ -1,6 +1,6 @@
 // models/EstadoCivil.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const EstadoCivil = sequelize.define('EstadoCivil', {
   idestadocivil: {
@@ -13,8 +13,8 @@ const EstadoCivil = sequelize.define('EstadoCivil', {
     allowNull: false
   }
 }, {
-  tableName: 'estadocivil', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'estadocivil', 
+  timestamps: false 
 });
 
 module.exports = EstadoCivil;

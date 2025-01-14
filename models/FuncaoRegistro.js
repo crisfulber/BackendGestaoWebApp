@@ -1,6 +1,6 @@
 // models/FuncaoRegistro.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const FuncaoRegistro = sequelize.define('FuncaoRegistro', {
   idfuncaoregistro: {
@@ -17,8 +17,8 @@ const FuncaoRegistro = sequelize.define('FuncaoRegistro', {
     allowNull: false
   }
 }, {
-  tableName: 'funcaoregistro', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'funcaoregistro', 
+  timestamps: false 
 });
 
 module.exports = FuncaoRegistro;

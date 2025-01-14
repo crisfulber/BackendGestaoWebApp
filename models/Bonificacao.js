@@ -1,6 +1,6 @@
 // models/Bonificacao.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Bonificacao = sequelize.define('Bonificacao', {
   idbonificacao: {
@@ -12,7 +12,7 @@ const Bonificacao = sequelize.define('Bonificacao', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Periodo', // Nome da tabela referenciada
+      model: 'Periodo',
       key: 'idperiodo'
     }
   },
@@ -24,7 +24,7 @@ const Bonificacao = sequelize.define('Bonificacao', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Unidade', // Nome da tabela referenciada
+      model: 'Unidade',
       key: 'idunidade'
     }
   },  
@@ -32,7 +32,7 @@ const Bonificacao = sequelize.define('Bonificacao', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'FuncaoEmpresa', // Nome da tabela referenciada
+      model: 'FuncaoEmpresa', 
       key: 'idfuncaoempresa'
     }
   },
@@ -40,13 +40,13 @@ const Bonificacao = sequelize.define('Bonificacao', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador', 
       key: 'idcolaborador'
     }
   }
 }, {
-  tableName: 'bonificacao', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'bonificacao', 
+  timestamps: false 
 });
 
 module.exports = Bonificacao;

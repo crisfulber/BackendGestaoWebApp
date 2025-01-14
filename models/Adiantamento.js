@@ -1,6 +1,6 @@
 // models/Adiantamento.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const Adiantamento = sequelize.define('Adiantamento', {
   idadiantamento: {
@@ -24,13 +24,13 @@ const Adiantamento = sequelize.define('Adiantamento', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador',
       key: 'idcolaborador'
     }
   }
 }, {
-  tableName: 'adiantamento', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'adiantamento', 
+  timestamps: false
 });
 
 module.exports = Adiantamento;

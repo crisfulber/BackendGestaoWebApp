@@ -1,6 +1,6 @@
 // models/CPF.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const CPF = sequelize.define('CPF', {
   idcpf: {
@@ -14,8 +14,8 @@ const CPF = sequelize.define('CPF', {
     unique: true
   }
 }, {
-  tableName: 'cpf', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'cpf', 
+  timestamps: false 
 });
 
 module.exports = CPF;

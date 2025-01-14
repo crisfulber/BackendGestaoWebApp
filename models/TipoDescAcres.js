@@ -1,6 +1,6 @@
 // models/TipoDescAcres.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database');
 
 const TipoDescAcres = sequelize.define('TipoDescAcres', {
   idtipodescacres: {
@@ -17,8 +17,8 @@ const TipoDescAcres = sequelize.define('TipoDescAcres', {
     allowNull: false
   }
 }, {
-  tableName: 'tipodescacres', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'tipodescacres', 
+  timestamps: false 
 });
 
 module.exports = TipoDescAcres;

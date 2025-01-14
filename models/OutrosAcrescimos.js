@@ -1,6 +1,6 @@
 // models/OutrosAcrescimos.js
 const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database'); // ajuste o caminho conforme necessário
+const sequelize = require('../config/database'); 
 
 const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
   idoutrosacrescimos: {
@@ -12,7 +12,7 @@ const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Colaborador', // Nome da tabela referenciada
+      model: 'Colaborador', 
       key: 'idcolaborador'
     }
   },
@@ -20,7 +20,7 @@ const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'TipoDescAcres', // Nome da tabela referenciada
+      model: 'TipoDescAcres', 
       key: 'idtipodescacres'
     }
   },
@@ -32,7 +32,7 @@ const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
     type: DataTypes.INTEGER,
     allowNull: false,
     references: {
-      model: 'Periodo', // Nome da tabela referenciada
+      model: 'Periodo', 
       key: 'idperiodo'
     }
   },
@@ -41,8 +41,8 @@ const OutrosAcrescimos = sequelize.define('OutrosAcrescimos', {
     allowNull: false
   }
 }, {
-  tableName: 'outrosacrescimos', // Nome da tabela no banco de dados
-  timestamps: false // Define se o Sequelize deve adicionar timestamps automáticos (createdAt, updatedAt)
+  tableName: 'outrosacrescimos', 
+  timestamps: false 
 });
 
 module.exports = OutrosAcrescimos;

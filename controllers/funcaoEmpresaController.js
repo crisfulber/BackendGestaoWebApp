@@ -1,9 +1,14 @@
 // controllers/funcaoEmpresaController.js
-const FuncaoEmpresa = require('../models/FuncaoEmpresa');
+const { Unidade, FuncaoEmpresa } = require('../models');
 
 const getFuncaoEmpresa = async (req, res) => {
   try {
-    const funcaoEmpresa = await FuncaoEmpresa.findAll();
+    const funcaoEmpresa = await FuncaoEmpresa.findAll({
+      include: [{
+        model: Unidade,
+        attributes: ['nome'] // se quiser filtrar colunas
+      }]
+    });
     res.json(funcaoEmpresa);
   } catch (err) {
     res.status(500).send(err.message);
@@ -13,7 +18,13 @@ const getFuncaoEmpresa = async (req, res) => {
 const getFuncaoEmpresaById = async (req, res) => {
   try {
     const { id } = req.params;
-    const funcaoEmpresa = await FuncaoEmpresa.findOne({ where: { idfuncaoempresa: id } }); 
+    const funcaoEmpresa = await FuncaoEmpresa.findOne({ 
+      where: { idfuncaoempresa: id },
+      include: [{
+        model: Unidade,
+        attributes: ['nome'] // se quiser filtrar colunas
+      }] 
+    }); 
     if (funcaoEmpresa) {
       res.status(200).json(funcaoEmpresa); 
     } else {
